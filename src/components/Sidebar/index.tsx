@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 import logo from "../../assets/logo/logo.svg";
 import { MdDateRange } from "react-icons/md";
 import Links from "../links/Link";
@@ -14,40 +14,36 @@ interface SideBarProps {
   onCloseMenu: () => void;
 }
 
-const SideBar: FC<SideBarProps> = ({status,onCloseMenu}) => {
-  const [active, setActive] = useState<boolean>( true);
-
-
-console.log(status)
+const SideBar: FC<SideBarProps> = ({ status, onCloseMenu }) => {
   return (
     <>
-     <div className={`bg-[#1c2434] h-dvh 
+      <div
+        className={`bg-[#1c2434] h-dvh 
       text-white w-auto
       absolute
       left-0
       transition-transform
-      delay-300
+      delay-100
       ease-linear
-      ${ status  ==true ? "translate-x-0" :"-translate-x-full"}
+      ${status == true ? "translate-x-0" : "-translate-x-full"}
      md:static
      lg:w-1/4
      md:translate-x-0
      sm:-translate-x-full
-    `}>
+    `}
+      >
         <div className="logo_part h-[10%]  flex items-center">
           <span className="w-full flex justify-center  object-contain items-center py-2">
             <img className="h-fit w-[70%]" src={logo} alt="logo_image" />
           </span>
-           <span className="hidden  justify-center  object-contain items-center p-2  md:hidden lg:hidden sm:flex">
-           <IoMdClose className="text-xl" onClick={onCloseMenu}/>
+          <span className="block  justify-center  object-contain items-center p-2  md:hidden lg:hidden ">
+            <IoMdClose className="text-xl" onClick={onCloseMenu} />
           </span>
-          
         </div>
 
         <div className="nav_part  h-[90%]  flex  flex-col items-center">
           <div className="link_Container  text-link_text  flex gap-3 justify-start flex-col mt-20">
             <span className="border-b-link_text  border-b-2 text-lg p-2 w-full ">
-              
               <h1>Menu</h1>
             </span>
 
