@@ -12,7 +12,7 @@ const Header: FC<HeaderProps> = ({toggleMenu}) => {
   return (
     <>
     
-      <div className="h-[10%]    justify-between lg:justify-end md:justify-end w-full flex items-center shadow-md px-2">
+      <div className="h-[10%] sticky top-0  bg-white z-40  justify-between lg:justify-end md:justify-end w-full flex items-center shadow-md px-2">
       
         <div className="burger_menu block lg:hidden md:hidden   text-[#1c2434]">
           <RiMenuFill onClick={toggleMenu}/>

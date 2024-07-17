@@ -22,6 +22,7 @@ const SideBar: FC<SideBarProps> = ({ status, onCloseMenu }) => {
       text-white w-auto
       absolute
       left-0
+      z-50
       transition-transform
       delay-100
       ease-linear

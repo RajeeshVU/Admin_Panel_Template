@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import Typography from '../../components/typography/Typography';
+import RegistrationForm from '../../components/forms/registrationForm/RegistrationFrom';
 
 interface RegistrationProps {
   
@@ -8,7 +9,8 @@ interface RegistrationProps {
 const Registration: FC<RegistrationProps> = ({}) => {
   return (
     <>
-      <Typography tag={'h1'} label={'Registration'}/>
+     
+      <RegistrationForm/>
     </>
   );
 };

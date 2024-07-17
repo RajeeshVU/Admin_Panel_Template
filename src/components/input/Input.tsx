@@ -1,44 +1,88 @@
-import React from 'react';
+import React, { HTMLInputTypeAttribute } from "react";
+import { Input } from "@material-tailwind/react";
+import type {
+  InputProps,
+  InputStylesType,
+  InputVariantStylesType,
+} from "@material-tailwind/react";
 
-interface InputProps extends React.InputHTMLAttributes<HTMLInputElement>{
+import {
+  error,
+  success,
+  labelProps,
+  containerProps,
+  shrink,
+} from "@material-tailwind/react/types/components/input";
+import { color, size, variant } from "./types";
+
+interface InputComponentProps
+  extends React.HtmlHTMLAttributes<HTMLInputElement> {
+  variant?: variant;
+  size?: size;
+  color?: color;
   label?: string;
-  name: string;
-  type?: string;
+  error?: error;
+  success?: success;
+  icon?: React.ReactNode;
+  labelProps?: labelProps;
+  containerProps?: containerProps;
   className?: string;
-  labelClassName?: string; 
-  errorMessage?: string; 
-  rest?: React.InputHTMLAttributes<HTMLInputElement>; 
+  shrink?: shrink;
+  inputRef?: React.Ref<HTMLInputElement>;
+  name?: string;
+  type?: HTMLInputTypeAttribute;
+  placeHolder?: string;
+  getData?: (image: string) => void;
 }
 
-const Input: React.FC<InputProps> = ({
-  label,
+const InputComponent: React.FC<InputComponentProps> = ({
+  getData,
+  variant,
+  color,
+  className,
   name,
-  type = 'text',
-  className = '',
-  labelClassName = '',
-  errorMessage,
-
- ...rest
+  labelProps,
+  icon,
+  shrink,
+  inputRef,
+  containerProps,
+  success,
+  error,
+  label,
+  placeHolder,
+  type,
+  ...rest
 }) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    getData?.(e.target.value);
+  };
   return (
-    <div className="mb-2">
-      <label
-        htmlFor={name}
-        className={`text-gray-700 block mb-0 font-medium ${labelClassName || ''}`}
-      >
-        {label}
-      </label>
-      <input
-        {...rest}
-        id={name}
-        name={name}
-        type={type} 
-        
-        className={`border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-1 focus:ring-blue-500 ${className || ''}`}
-      />
-      {errorMessage && <p className="text-red-500 text-sm">{errorMessage}</p>}
-    </div>
+   
+ <Input
+      type={type}
+      placeholder={placeHolder}
+      labelProps={labelProps}
+      icon={icon}
+      inputRef={inputRef}
+      containerProps={containerProps}
+      shrink={shrink}
+      error={error}
+      success={success}
+      label={label}
+      className={className}
+      color={color}
+      name={name}
+      variant={'standard'}
+      onPointerEnterCapture={undefined}
+      onPointerLeaveCapture={undefined}
+      crossOrigin={undefined}
+     onChange={handleChange}
+    {...rest}
+    />
+   
+   
+   
   );
 };
 
-export default Input;
+export default InputComponent;

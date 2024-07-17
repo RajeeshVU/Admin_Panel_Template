@@ -1,27 +1,27 @@
-import React, { FC } from 'react';
-import { TABLE_HEAD, TABLE_ROWS } from './tabledata';
-import { Card, Typography } from "@material-tailwind/react";
+import { FC } from "react";
+import { Typography, TabStylesType } from "@material-tailwind/react";
 
-interface TableProps {
-  
+interface TableProps extends TabStylesType {
+  table_head?: any[];
+  table_rows?: any[];
+  border?: string;
 }
 
-const Table: FC<TableProps> = ({}) => {
+const Table: FC<TableProps> = ({ table_head, table_rows }) => {
   return (
     <>
-      <Card className="h-full w-full overflow-scroll">
-      <table className="w-full min-w-max table-auto text-left">
+      <table className="w-full min-w-max   border-0 mt-2 table-auto text-left">
         <thead>
           <tr>
-            {TABLE_HEAD.map((head) => (
-              <th
-                key={head}
-                className="border-b border-blue-gray-100 bg-blue-gray-50 p-4"
-              >
+            {table_head?.map((head) => (
+              <th key={head} className="border-2 bg-blue-gray-50 p-4">
                 <Typography
                   variant="small"
                   color="blue-gray"
                   className="font-normal leading-none opacity-70"
+                  placeholder={undefined}
+                  onPointerEnterCapture={undefined}
+                  onPointerLeaveCapture={undefined}
                 >
                   {head}
                 </Typography>
@@ -30,19 +30,22 @@ const Table: FC<TableProps> = ({}) => {
           </tr>
         </thead>
         <tbody>
-          {TABLE_ROWS.map(({ name, job, date }, index) => {
-            const isLast = index === TABLE_ROWS.length - 1;
-            const classes = isLast ? "p-4" : "p-4 border-b border-blue-gray-50";
- 
+          {table_rows?.map((item, index) => {
+            const isLast = index === table_rows.length - 1;
+            const classes = isLast ? "p-4" : "p-4 border-b ";
+
             return (
-              <tr key={name}>
+              <tr key={index}>
                 <td className={classes}>
                   <Typography
                     variant="small"
                     color="blue-gray"
                     className="font-normal"
+                    placeholder={undefined}
+                    onPointerEnterCapture={undefined}
+                    onPointerLeaveCapture={undefined}
                   >
-                    {name}
+                    {item.name}
                   </Typography>
                 </td>
                 <td className={classes}>
@@ -50,8 +53,11 @@ const Table: FC<TableProps> = ({}) => {
                     variant="small"
                     color="blue-gray"
                     className="font-normal"
+                    placeholder={undefined}
+                    onPointerEnterCapture={undefined}
+                    onPointerLeaveCapture={undefined}
                   >
-                    {job}
+                    {item.job}
                   </Typography>
                 </td>
                 <td className={classes}>
@@ -59,19 +65,23 @@ const Table: FC<TableProps> = ({}) => {
                     variant="small"
                     color="blue-gray"
                     className="font-normal"
+                    placeholder={undefined}
+                    onPointerEnterCapture={undefined}
+                    onPointerLeaveCapture={undefined}
                   >
-                    {date}
+                    {item.date}
                   </Typography>
                 </td>
                 <td className={classes}>
                   <Typography
-                    as="a"
-                    href="#"
                     variant="small"
                     color="blue-gray"
-                    className="font-medium"
+                    className="font-normal"
+                    placeholder={undefined}
+                    onPointerEnterCapture={undefined}
+                    onPointerLeaveCapture={undefined}
                   >
-                    Edit
+                    {item.fees}
                   </Typography>
                 </td>
               </tr>
@@ -79,7 +89,6 @@ const Table: FC<TableProps> = ({}) => {
           })}
         </tbody>
       </table>
-    </Card> 
     </>
   );
 };
