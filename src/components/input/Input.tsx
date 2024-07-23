@@ -33,6 +33,7 @@ interface InputComponentProps
   type?: HTMLInputTypeAttribute;
   placeHolder?: string;
   getData?: (image: string) => void;
+  disabled?:boolean;
 }
 
 const InputComponent: React.FC<InputComponentProps> = ({
@@ -51,14 +52,14 @@ const InputComponent: React.FC<InputComponentProps> = ({
   label,
   placeHolder,
   type,
+  disabled,
   ...rest
 }) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     getData?.(e.target.value);
   };
   return (
-   
- <Input
+    <Input
       type={type}
       placeholder={placeHolder}
       labelProps={labelProps}
@@ -72,16 +73,14 @@ const InputComponent: React.FC<InputComponentProps> = ({
       className={className}
       color={color}
       name={name}
-      variant={'standard'}
+      variant={variant}
       onPointerEnterCapture={undefined}
       onPointerLeaveCapture={undefined}
       crossOrigin={undefined}
-     onChange={handleChange}
-    {...rest}
+      onChange={handleChange}
+      disabled={disabled}
+      {...rest}
     />
-   
-   
-   
   );
 };
 

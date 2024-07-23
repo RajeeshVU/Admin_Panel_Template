@@ -12,7 +12,7 @@ const ImageComponent: FC<ImageComponentProps> = ({className,src,alt,...rest}) =>
     <>
    
       <img
-        className={`${className}object-cover object-center   `}
+        className={`${className} object-cover object-center   `}
         src={src? src :placeholderImg}
         alt={alt}
         {...rest}

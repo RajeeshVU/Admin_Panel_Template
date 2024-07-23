@@ -1,24 +1,27 @@
 import { FC } from "react";
 import { Typography, TabStylesType } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
 
 interface TableProps extends TabStylesType {
   table_head?: any[];
   table_rows?: any[];
   border?: string;
+
 }
 
 const Table: FC<TableProps> = ({ table_head, table_rows }) => {
+
   return (
     <>
       <table className="w-full min-w-max   border-0 mt-2 table-auto text-left">
         <thead>
           <tr>
             {table_head?.map((head) => (
-              <th key={head} className="border-2 bg-blue-gray-50 p-4">
+              <th key={head} className="border-2  bg-teal-500 text-white p-4">
                 <Typography
                   variant="small"
-                  color="blue-gray"
-                  className="font-normal leading-none opacity-70"
+                  
+                  className="font-normal leading-none "
                   placeholder={undefined}
                   onPointerEnterCapture={undefined}
                   onPointerLeaveCapture={undefined}
@@ -30,63 +33,19 @@ const Table: FC<TableProps> = ({ table_head, table_rows }) => {
           </tr>
         </thead>
         <tbody>
-          {table_rows?.map((item, index) => {
-            const isLast = index === table_rows.length - 1;
-            const classes = isLast ? "p-4" : "p-4 border-b ";
-
-            return (
-              <tr key={index}>
-                <td className={classes}>
-                  <Typography
-                    variant="small"
-                    color="blue-gray"
-                    className="font-normal"
-                    placeholder={undefined}
-                    onPointerEnterCapture={undefined}
-                    onPointerLeaveCapture={undefined}
-                  >
-                    {item.name}
-                  </Typography>
-                </td>
-                <td className={classes}>
-                  <Typography
-                    variant="small"
-                    color="blue-gray"
-                    className="font-normal"
-                    placeholder={undefined}
-                    onPointerEnterCapture={undefined}
-                    onPointerLeaveCapture={undefined}
-                  >
-                    {item.job}
-                  </Typography>
-                </td>
-                <td className={classes}>
-                  <Typography
-                    variant="small"
-                    color="blue-gray"
-                    className="font-normal"
-                    placeholder={undefined}
-                    onPointerEnterCapture={undefined}
-                    onPointerLeaveCapture={undefined}
-                  >
-                    {item.date}
-                  </Typography>
-                </td>
-                <td className={classes}>
-                  <Typography
-                    variant="small"
-                    color="blue-gray"
-                    className="font-normal"
-                    placeholder={undefined}
-                    onPointerEnterCapture={undefined}
-                    onPointerLeaveCapture={undefined}
-                  >
-                    {item.fees}
-                  </Typography>
-                </td>
-              </tr>
-            );
-          })}
+          {table_rows?.map((item: any, index) => (
+            <tr key={index} >
+              {Object.entries(item)?.map(([key, value]) => (
+              <td className="p-4 text-left" key={key}>
+           {
+            key =='link'?
+            <Link   className=" bg-teal-500 text-sm w-15 justify-center items-center text-white flex p-1 px-2 rounded-md " to={value? Object.values(value)[0] :''}>{ value? Object.values(value)[1] :''}</Link>:value?.toString()
+           }
+              </td>
+              ))}
+             
+            </tr>
+          ))}
         </tbody>
       </table>
     </>

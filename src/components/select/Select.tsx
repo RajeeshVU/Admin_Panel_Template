@@ -1,6 +1,6 @@
 import React, { FC, HTMLInputTypeAttribute } from "react";
-import { Select, Option, SelectStylesType } from "@material-tailwind/react";
-import { color, size, variant } from "./types";
+import { Select, Option } from "@material-tailwind/react";
+import { size, variant } from "./types";
 import {
   containerProps,
   error,
@@ -59,7 +59,7 @@ const SelectDropdown: FC<SelectDropdownProps> = ({
           onPointerLeaveCapture={undefined}
           color={color}
           name={name}
-          variant="standard"
+          variant={variant}
           labelProps={labelProps}
           containerProps={containerProps}
         >

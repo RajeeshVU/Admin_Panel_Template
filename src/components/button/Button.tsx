@@ -1,7 +1,7 @@
 import { ButtonStyleTypes } from "@material-tailwind/react";
 import { FC } from "react";
 
-interface ButtonComponentProps extends ButtonStyleTypes {
+interface ButtonComponentProps extends React.HtmlHTMLAttributes<HTMLButtonElement> {
   label?: string;
   type?: "submit" | "button" | "reset";
   name?: string;
@@ -21,7 +21,7 @@ const ButtonComponent: FC<ButtonComponentProps> = ({
    
   return (
     <>
-      <div className="">
+      {/* <div className="w-auto"> */}
         <button
         onClick={operation}
           className={className}
@@ -34,7 +34,7 @@ const ButtonComponent: FC<ButtonComponentProps> = ({
          {children}
         
         </button>
-      </div>
+      {/* </div> */}
     </>
   );
 };

@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 interface LinksProps {
-  icon:React.ReactNode,
-  label:string,
-  to:string
+  icon?:React.ReactNode,
+  label?:string,
+  to:string,
 }
 
 const Links: FC<LinksProps> = ({icon,label,to}) => {

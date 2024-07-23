@@ -1,4 +1,4 @@
-import { FC, useState, useRef, forwardRef } from "react";
+import { FC, useState, useRef } from "react";
 import Typography from "../../typography/Typography";
 import SelectDropdown from "../../select/Select";
 import InputComponent from "../../input/Input";
@@ -28,14 +28,11 @@ const AppointmentForm: FC<AppointmentFormProps> = ({}) => {
       <form action="" className="w-full flex flex-col   h-full">
       
         <div className="p-2">
-          <Typography
-            label={"Appointments"}
-            className="mt-0 bg-teal-500 text-white text-center ml-0 py-3 text-lg"
-          />
+         
           <Typography
             label={"Patient Details"}
             tag={"h6"}
-            className="text-left border-b-2 border-bg-gray-200 text-headingSmall mt-3 ml-4 mr-4 text-md"
+            className="text-left  bg-teal-500 border-b-2 border-bg-gray-200 text-white mt-3 pl-4  text-md"
           />
           <div  className="grid grid-cols-1 mt-1 gap-4 lg:grid-cols-3 sm:grid-cols-1 px-3  p-2">
             <InputComponent
@@ -44,7 +41,7 @@ const AppointmentForm: FC<AppointmentFormProps> = ({}) => {
               name="firstName"
               containerProps={{className:"!min-w-0 h-8 flex w-full"}}
               labelProps={{className:" w-full h-8 !min-h-0 "}}
-              className=" w-full  "
+              className=" w-full  py-4"
           
               error={false}
               label="First Name"
@@ -55,7 +52,7 @@ const AppointmentForm: FC<AppointmentFormProps> = ({}) => {
               name="lastName"
               containerProps={{className:"!min-w-0 h-8 flex w-full"}}
               labelProps={{className:" w-full h-8 !min-h-0 "}}
-              className=" w-full  "
+              className=" w-full  py-4"
               label="Last Name "
             />
             <InputComponent
@@ -64,7 +61,7 @@ const AppointmentForm: FC<AppointmentFormProps> = ({}) => {
               name="age"
               containerProps={{className:"!min-w-0 h-8 flex w-full"}}
               labelProps={{className:" w-full h-8 !min-h-0 "}}
-              className=" w-full  "
+              className=" w-full  py-4"
               label="Age"
             />
             <InputComponent
@@ -73,7 +70,7 @@ const AppointmentForm: FC<AppointmentFormProps> = ({}) => {
               name="place"
               containerProps={{className:"!min-w-0 h-8 flex w-full"}}
               labelProps={{className:" w-full h-8 !min-h-0 "}}
-              className=" w-full  "
+              className=" w-full  py-4"
               label="Place "
             />
             <InputComponent
@@ -82,7 +79,7 @@ const AppointmentForm: FC<AppointmentFormProps> = ({}) => {
               name="phone"
               containerProps={{className:"!min-w-0 h-8 flex w-full"}}
               labelProps={{className:" w-full h-8 !min-h-0 "}}
-              className=" w-full  "
+              className=" w-full  py-4"
               label="Phone"
             />
           </div>
@@ -90,14 +87,14 @@ const AppointmentForm: FC<AppointmentFormProps> = ({}) => {
           <Typography
             label={"Doctor Details"}
             tag={"h1"}
-            className="text-left border-b-2 border-bg-gray-200 text-headingSmall ml-4 mr-4 mt-2 text-md"
+            className="text-left  bg-teal-500 border-b-2 border-bg-gray-200 text-white mt-3 pl-4  text-md"
           />
 
           <div className="grid grid-cols-1 mt-1 gap-4 lg:grid-cols-3 sm:grid-cols-1 p-2">
             <SelectDropdown
                containerProps={{className:"!min-w-0 h-8 flex w-full"}}
                labelProps={{className:" w-full h-8 !min-h-0 "}}
-               className=" w-full  "
+               className=" w-full py-4 "
               name="department"
               label="Select Department"
               color="teal"
@@ -106,7 +103,7 @@ const AppointmentForm: FC<AppointmentFormProps> = ({}) => {
             <SelectDropdown
                 containerProps={{className:"!min-w-0 h-8 flex w-full"}}
                 labelProps={{className:" w-full h-8 !min-h-0 "}}
-                className=" w-full  "
+                className=" w-full py-4 "
               name="doctor"
               label="Select Doctor"
               color="teal"
@@ -116,10 +113,20 @@ const AppointmentForm: FC<AppointmentFormProps> = ({}) => {
               type="date"
               color="teal"
               name="date"
+
               containerProps={{className:"!min-w-0 h-8 flex w-full"}}
               labelProps={{className:" w-full h-8 !min-h-0 "}}
-              className=" w-full  "
+              className=" w-full  py-4"
               label="Date"
+            />
+             <SelectDropdown
+               containerProps={{className:"!min-w-0 h-8 flex w-full"}}
+               labelProps={{className:" w-full h-8 !min-h-0 "}}
+               className=" w-full py-4 "
+              name="department"
+              label="Payment Status"
+              color="teal"
+              options={["active", "pending"]}
             />
           </div>
           <Typography
@@ -127,10 +134,10 @@ const AppointmentForm: FC<AppointmentFormProps> = ({}) => {
             tag={"h1"}
             className="text-left border-b-2 border-bg-gray-200 text-headingSmall ml-4 mr-4 mt-2 text-md"
           />
-          <Table table_head={TABLE_HEAD} table_rows={TABLE_ROWS} />
+          <Table table_head={TABLE_HEAD} table_rows={TABLE_ROWS}/>
         </div>
 
-        <div className="w-full flex  flex-col    p-2   justify-between items-end">
+        <div className="w-full flex  flex-col    p-2   justify-between items-center">
           <ButtonComponent
             operation={close}
             className=" bg-teal-500 text-sm justify-center items-center text-white flex p-2 rounded-md "

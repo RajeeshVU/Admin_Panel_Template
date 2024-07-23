@@ -3,3 +3,10 @@
 .before{
   width: 0% !important;
 }
+
+.MuiPaper-root {
+  position: relative;
+  width: auto; 
+  overflow: hidden !important;
+  padding: 2rem;
+}

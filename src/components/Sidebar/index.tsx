@@ -2,13 +2,14 @@ import { FC } from "react";
 import logo from "../../assets/logo/logo.svg";
 import { MdDateRange } from "react-icons/md";
 import Links from "../links/Link";
-import { GrStatusGood } from "react-icons/gr";
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { FaUserDoctor } from "react-icons/fa6";
+import { RiUserAddLine } from "react-icons/ri";
 import { FaBed } from "react-icons/fa";
 import { PiFilesDuotone } from "react-icons/pi";
 import { MdAppRegistration } from "react-icons/md";
 import { IoMdClose } from "react-icons/io";
+import { IoSettingsOutline } from "react-icons/io5";
 interface SideBarProps {
   status?: boolean | undefined;
   onCloseMenu: () => void;
@@ -19,7 +20,7 @@ const SideBar: FC<SideBarProps> = ({ status, onCloseMenu }) => {
     <>
       <div
         className={`bg-[#1c2434] h-dvh 
-      text-white w-auto
+      text-white !w-[20%]
       absolute
       left-0
       z-50
@@ -70,7 +71,7 @@ const SideBar: FC<SideBarProps> = ({ status, onCloseMenu }) => {
               label={"Notification"}
               to={"/notifications"}
             />
-            <Links icon={<GrStatusGood />} label={"Status"} to={"/status"} />
+            <Links icon={<IoSettingsOutline />} label={"Settings"} to={"/settings"} />
           </div>
         </div>
       </div>

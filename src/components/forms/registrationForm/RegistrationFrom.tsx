@@ -1,10 +1,7 @@
 
 import  { FC, useRef, useState } from 'react';
-import { FiPrinter } from 'react-icons/fi';
-import { RiArrowGoBackFill } from 'react-icons/ri';
 import ButtonComponent from '../../button/Button';
 import InputComponent from '../../input/Input';
-import ModalComponent from '../../modal/Modal';
 import SelectDropdown from '../../select/Select';
 import { useReactToPrint } from 'react-to-print';
 import Typography from '../../typography/Typography';
@@ -32,17 +29,13 @@ const RegistrationForm: FC<RegistrationFormProps> = ({}) => {
       }
   return (
     <>
-       <form action="" className="w-full flex flex-col  justify-between h-full">
+       <form action="" className="w-full flex flex-col   h-full">
       
       <div className="p-2">
         <Typography
-          label={"Registration"}
-          className="mt-0 bg-teal-500 text-white text-center ml-0 py-3 text-lg"
-        />
-        <Typography
           label={"Patient Details"}
           tag={"h6"}
-          className="text-left border-b-2 border-bg-gray-200 text-headingSmall mt-3 ml-4 mr-4 text-md"
+          className="text-left  bg-teal-500 border-b-2 border-bg-gray-200 text-white mt-3 pl-4  text-md"
         />
         <div  className="flex w-full gap-4 p-2 px-3">
        <div className="bg-red-200 !h-[7rem] basis-1/7 border-2 border-headingSmall  w-[6rem]">
@@ -68,10 +61,10 @@ const RegistrationForm: FC<RegistrationFormProps> = ({}) => {
             type="text"
             color="teal"
             name="lastName"
-            className="h-4 "
+            className="h-4 py-4 "
             label="Last Name "
             containerProps={{className:"!min-w-0 h-8 flex w-full"}}
-            labelProps={{className:" w-full h-8 !min-h-0 "}}
+            labelProps={{className:" w-full   !min-h-0 "}}
           />
         
          <div className="flex gap-2">
@@ -87,7 +80,7 @@ const RegistrationForm: FC<RegistrationFormProps> = ({}) => {
             name="age"
             containerProps={{className:"!min-w-0 h-8 flex w-full"}}
             labelProps={{className:" w-full h-8 !min-h-0 "}}
-            className="h-4 w-[100%] "
+            className="h-4 py-4 w-[100%] "
             label="Age "
           />
          </div>
@@ -112,7 +105,7 @@ const RegistrationForm: FC<RegistrationFormProps> = ({}) => {
             name="guardian"
             containerProps={{className:"!min-w-0 h-8 flex w-full"}}
             labelProps={{className:" w-full h-8 !min-h-0 "}}
-            className="h-4 w-full "
+            className="h-4 py-4 w-full "
             label="Guardian Name"
           />
               <SelectDropdown options={["Father","Mother","Brother","Sister","Husband","Wife","Son","Relative"]} 
@@ -132,7 +125,7 @@ const RegistrationForm: FC<RegistrationFormProps> = ({}) => {
         <Typography
           label={"Address"}
           tag={"h1"}
-          className="text-left mt-4 border-b-2 border-bg-gray-200 text-headingSmall ml-4 mr-4  text-md"
+          className="text-left  bg-teal-500 border-b-2 border-bg-gray-200 text-white mt-3 pl-4  text-md"
         />
 
 <div className="grid justify-center items-center w-full grid-cols-3   gap-y-5 px-3  gap-x-5 p-2">
@@ -141,7 +134,7 @@ const RegistrationForm: FC<RegistrationFormProps> = ({}) => {
             color="teal"
             
             name="house"
-            className="w-full "
+            className="w-full py-4"
             error={false}
             label="House"
             containerProps={{className:"!min-w-0 h-8 flex w-full"}}
@@ -151,7 +144,7 @@ const RegistrationForm: FC<RegistrationFormProps> = ({}) => {
             type="text"
             color="teal"
             name="localBodyType"
-            className="h-4 "
+            className="h-4 py-4 "
             label="LocalBody Type"
             containerProps={{className:"!min-w-0 h-8 flex w-full"}}
             labelProps={{className:" w-full h-8 !min-h-0 "}}
@@ -163,25 +156,25 @@ const RegistrationForm: FC<RegistrationFormProps> = ({}) => {
              containerProps={{className:"!min-w-0 h-8 flex w-full"}}
             labelProps={{className:" w-full h-8 !min-h-0 "}}
             name='localBody'
-            className="h-full w-[100%] " label='Local Body' color='teal'/>
+            className="h-full py-4 w-[100%] " label='Local Body' color='teal'/>
 
             <SelectDropdown options={["A+","A-","B+"]} 
              containerProps={{className:"!min-w-0 h-8 flex w-full"}}
             labelProps={{className:" w-full h-8 !min-h-0 "}}
             name='post'
-            className="h-full w-[100%] " label='Post' color='teal'/>
+            className="h-full py-4 w-[100%] " label='Post' color='teal'/>
 
 <SelectDropdown options={["A+","A-","B+"]} 
             containerProps={{className:"!min-w-0 h-8 flex w-full"}}
             labelProps={{className:" w-full h-8 !min-h-0 "}}
             name='district'
-            className="h-full w-[100%] " label='District' color='teal'/>
+            className="h-full py-4 w-[100%] " label='District' color='teal'/>
         
         <SelectDropdown options={["A+","A-","B+"]} 
             containerProps={{className:"!min-w-0 h-8 flex w-full"}}
             labelProps={{className:" w-full h-8 !min-h-0 "}}
             name='state'
-            className="h-full w-[100%] " label='State' color='teal'/>
+            className="h-full py-4 w-[100%] " label='State' color='teal'/>
            
          <InputComponent
             type="text"
@@ -189,7 +182,7 @@ const RegistrationForm: FC<RegistrationFormProps> = ({}) => {
             name="country"
             containerProps={{className:"!min-w-0 h-8 flex w-full"}}
             labelProps={{className:" w-full h-8 !min-h-0 "}}
-            className="h-4 w-full "
+            className="h-4 py-4 w-full "
             label="Country"
           />
              <InputComponent
@@ -198,7 +191,7 @@ const RegistrationForm: FC<RegistrationFormProps> = ({}) => {
             name="country"
             containerProps={{className:"!min-w-0 h-8 flex w-full"}}
             labelProps={{className:" w-full h-8 !min-h-0 "}}
-            className="h-4 w-full "
+            className="h-4 py-4 w-full "
             label="Pin"
           />
             
@@ -207,7 +200,7 @@ const RegistrationForm: FC<RegistrationFormProps> = ({}) => {
         <Typography
           label={"Contact Info"}
           tag={"h1"}
-          className="text-left mt-2 border-b-2 border-bg-gray-200 text-headingSmall ml-4 mr-4  text-md"
+          className="text-left  bg-teal-500 border-b-2 border-bg-gray-200 text-white mt-3 pl-4  text-md"
         />
         <div className="grid justify-center items-center w-full grid-cols-4 gap-y-2 px-3 gap-4 p-2">
     
@@ -217,7 +210,7 @@ const RegistrationForm: FC<RegistrationFormProps> = ({}) => {
             name="phone1"
             containerProps={{className:"!min-w-0 h-8 flex w-full"}}
             labelProps={{className:" w-full h-8 !min-h-0 "}}
-            className=" w-full  "
+            className=" w-full py-4 "
             label="Phone 1"
             
           />
@@ -228,25 +221,20 @@ const RegistrationForm: FC<RegistrationFormProps> = ({}) => {
           
             containerProps={{className:"!min-w-0 h-8 !outline-0 flex w-full "}}
             labelProps={{className:" !w-[99%] h-8  left-0 !border-0 "}}
-            className=" w-full  "
+            className=" w-full py-4 "
             label="Phone 2"
           />
         </div>
       </div>
      
       
-      <div className="w-full flex  flex-col    p-2   justify-between items-end">
-        <ButtonComponent
-          operation={close}
-          className="align-middle mt-5  flex-1 select-none font-sans font-bold text-center 
-          uppercase transition-all disabled:opacity-50 disabled:shadow-none
-          disabled:pointer-events-none text-xs py-3 px-6 rounded-lg   
-          shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 
-          focus:opacity-[0.85] text-white bg-teal-600 focus:shadow-none 
-          active:opacity-[0.85] active:shadow-none flex items-center gap-3"
-          type="submit"
-          label="Proceed"
-        >
+      <div className="w-full flex  flex-col    p-2   justify-between items-center">
+      <ButtonComponent
+            operation={close}
+            className=" bg-teal-500 text-sm justify-center items-center text-white flex p-2 rounded-md "
+            type="submit"
+            label="Proceed"
+          >
           <svg
             className="w-6 h-6 text-white dark:text-white"
             aria-hidden="true"

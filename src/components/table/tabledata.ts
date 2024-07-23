@@ -1,4 +1,4 @@
-export const TABLE_HEAD = ["Department", "Doctor", "Date", "Fees"];
+export const TABLE_HEAD = ["Department", "Doctor", "Date", "Fees","Status"];
  
 export const TABLE_ROWS = [
   {
@@ -6,6 +6,7 @@ export const TABLE_ROWS = [
     job: "Manager",
     date: "23/04/18",
     fees:200,
+    status:'pending'
   },
  
   
