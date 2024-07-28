@@ -8,6 +8,7 @@ interface ButtonComponentProps extends React.HtmlHTMLAttributes<HTMLButtonElemen
   className?:string;
   children?:React.ReactNode;
   operation?:()=>void
+  disabled?:boolean;
 }
 
 const ButtonComponent: FC<ButtonComponentProps> = ({
@@ -16,7 +17,9 @@ const ButtonComponent: FC<ButtonComponentProps> = ({
   label,
   type,
   name,
-  className
+  className,
+  disabled,
+  ...rest
 }) => {
    
   return (
@@ -28,6 +31,9 @@ const ButtonComponent: FC<ButtonComponentProps> = ({
           type={type}
           data-dialog-target="dialog"
           name={name}
+          {...rest}
+          disabled={disabled}
+          
         >
           {label}
           
