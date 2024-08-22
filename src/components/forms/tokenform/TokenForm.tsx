@@ -9,7 +9,7 @@ const TokenForm =forwardRef<HTMLDivElement,TokenFormProps>(({data},ref) => {
 
   return (
     <>
-      <div className="p-3  w-[1240 px] h-[1123px] " ref={ref}>
+      <div className="p-3   w-[1240 px] h-[1123px] " ref={ref}>
         <div className="bg-tokenBorder flex align-middle justify-center h-[10%]   text-white" >
           <span className="flex items-center text-3xl">
             <Typography tag={"h1"} label={"Hospital Name"} /> 

@@ -2,6 +2,7 @@ import { FC, useState, useContext } from "react";
 import ButtonComponent from "../../components/button/Button";
 import { authContext } from "../../context/authContext";
 import loginApi from "./loginApi";
+import { useNavigate } from "react-router-dom";
 
 
 interface LoginProps {}
@@ -12,23 +13,30 @@ const Login: FC<LoginProps> = ({}) => {
     password: "",
   });
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const { user, dispatch } = useContext(authContext);
+  const navigate=useNavigate()
+  const { token, dispatch } = useContext(authContext);
 
+  
   const readValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const formSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     const response = await loginApi(form);
-    response && dispatch({payload:response.data,type:"LOG_OUT"});
+    if(response)
+    {
+      navigate('/dashboard')
+    }
+    response && dispatch({payload:response.data,type:"LOG_IN"});
   };
 
   return (
     <>
       <form
         onSubmit={formSubmit}
-        className="relative flex flex-col text-gray-700 bg-white shadow-md w-96 rounded-xl bg-clip-border"
+        className="relative flex flex-col text-gray-700 bg-white shadow-md w-96 h-[60%] rounded-xl bg-clip-border"
       >
         <div className="relative grid mx-4 mb-4 -mt-6 overflow-hidden text-white shadow-lg h-28 place-items-center rounded-xl bg-gradient-to-tr from-gray-900 to-gray-800 bg-clip-border shadow-gray-900/20">
           <h3 className="block font-sans text-3xl antialiased font-semibold leading-snug tracking-normal text-white">
@@ -79,7 +87,7 @@ const Login: FC<LoginProps> = ({}) => {
                     viewBox="0 0 20 20"
                     fill="currentColor"
                     stroke="currentColor"
-                    stroke-width="1"
+                    strokeWidth="1"
                   >
                     <path
                       fill-rule="evenodd"

@@ -15,7 +15,7 @@ const Settings: FC<SettingsProps> = ({}) => {
       <div className="p-2">
         <Typography
           label={"Settings"}
-          className="mt-0 bg-teal-500 text-white text-center ml-0 py-3 p-2 text-lg"
+          className="mt-0 bg-sideBarBg text-white text-center ml-0 py-3 p-2 text-lg"
         />
         <div className="relative flex flex-col w-full items-center justify-center mt-4 shadow-lg pb-4">
           <div className="w-full !h-[16rem]">

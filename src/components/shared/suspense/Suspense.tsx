@@ -1,5 +1,6 @@
 import { FC } from 'react';
-
+import ImageComponent from '../../imageComponent/ImageComponent';
+import LoadingGif from '../../../assets/logo/loadingGif.gif'
 interface SuspenseProps {
   
 }
@@ -7,7 +8,9 @@ interface SuspenseProps {
 const SuspenseComponent: FC<SuspenseProps> = ({}) => {
   return (
     <>
-      <h1 style={{color:"red"}}>Loading</h1>
+      <div className="w-full h-screen bg-[#f9fbfe] flex-col flex justify-center items-center">
+          <ImageComponent src={LoadingGif} alt='load gif' className='h-[40%]'/>
+      </div>
     </>
   );
 };

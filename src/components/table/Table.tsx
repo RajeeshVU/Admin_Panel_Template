@@ -1,26 +1,30 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { Typography, TabStylesType } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
 
 interface TableProps extends TabStylesType {
   table_head?: any[];
-  table_rows?: any[];
+  table_rows?: any;
   border?: string;
 
 }
 
 const Table: FC<TableProps> = ({ table_head, table_rows }) => {
 
+
+const dataWithoutId = table_rows.map((item:any) => {
+  const { _id, ...rest } = item;
+  return rest;
+});
   return (
     <>
-      <table className="w-full min-w-max   border-0 mt-2 table-auto text-left">
+      <table className="relative w-full min-w-min   border-0 mt-2 table-auto text-left">
         <thead>
           <tr>
             {table_head?.map((head) => (
-              <th key={head} className="border-2  bg-teal-500 text-white p-4">
+              <th key={head} className="border-2  bg-sideBar text-white p-4">
                 <Typography
                   variant="small"
-                  
                   className="font-normal leading-none "
                   placeholder={undefined}
                   onPointerEnterCapture={undefined}
@@ -33,7 +37,10 @@ const Table: FC<TableProps> = ({ table_head, table_rows }) => {
           </tr>
         </thead>
         <tbody>
-          {table_rows?.map((item: any, index) => (
+          {/* <tr>
+            <td>{table_rows?.doctorDetails.name}</td>
+          </tr> */}
+          {dataWithoutId?.map((item: any, index:number) => (
             <tr key={index} >
               {Object.entries(item)?.map(([key, value]) => (
               <td className="p-4 text-left" key={key}>

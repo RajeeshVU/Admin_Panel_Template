@@ -1,27 +1,23 @@
 
-import { FC, createContext, useEffect, useReducer } from "react";
-interface User {
-    userName: string | null;
-    token?: string | null;
-    role?: string | null;
-    refreshToken?: string | null;
-  }
-  interface InitialValue{
-    user: User;
+import { FC, createContext, useContext, useEffect, useReducer } from "react";
+  interface AuthContextType {
+    user: string | null;
+    token: string | null ;
+    role: string | null;
+    refreshToken: string | null;
     dispatch:(action:any)=>void;
   }
  
-const initialValue:InitialValue={
-  user: {
-    userName: '',
-    token: '',
-    role: '',
-    refreshToken:'',
-  },
+const initialValue:AuthContextType ={
+ 
+    user: localStorage.getItem("user"),
+    token: localStorage.getItem("token"),
+    role:localStorage.getItem("role"),
+    refreshToken:localStorage.getItem("refreshToken"),
   dispatch:(action)=>{},
 }
 
-export const authContext=createContext(initialValue)
+export const authContext=createContext<AuthContextType >(initialValue)
  const authReducer=(state:any,action:any)=>{
   switch (action.type) {
     case "LOG_IN":
@@ -57,19 +53,18 @@ const AuthContextProvider:FC<AuthContextProviderProps>=({children})=>{
 
   const [state,dispatch]=useReducer(authReducer,initialValue)
   useEffect(() => {
-    localStorage.setItem("user", JSON.stringify(state.user));
+    localStorage.setItem("user", state.user);
     localStorage.setItem("token", state.token);
     localStorage.setItem("role", state.role);
     localStorage.setItem("refreshToken", state.refreshToken);
   }, [state]);
 return(
   <authContext.Provider  value={
-   { user: {
-    userName: state.username,
+   {
+    user: state.user,
     token: state.token,
     role: state.role,
     refreshToken:state.refreshToken,
-  },
   dispatch,
 }
   }>
@@ -78,5 +73,12 @@ return(
 )
 }
 
+export const useAuth=()=>{
+  const context=useContext(authContext);
+  if(!context){
+    throw new Error('useAuth must be used within an AuthProvider')
+  }
+ return context; 
+}
 export default AuthContextProvider;
 

@@ -4,7 +4,6 @@ import { MdDateRange } from "react-icons/md";
 import Links from "../links/Link";
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { FaUserDoctor } from "react-icons/fa6";
-import { RiUserAddLine } from "react-icons/ri";
 import { FaBed } from "react-icons/fa";
 import { PiFilesDuotone } from "react-icons/pi";
 import { MdAppRegistration } from "react-icons/md";
@@ -19,9 +18,10 @@ const SideBar: FC<SideBarProps> = ({ status, onCloseMenu }) => {
   return (
     <>
       <div
-        className={`bg-[#1c2434] h-dvh 
-      text-white !w-[20%]
-      absolute
+        className={`bg-[#1c2434] h-screen
+      text-white 
+     top-0
+      fixed
       left-0
       z-50
       transition-transform
@@ -29,7 +29,9 @@ const SideBar: FC<SideBarProps> = ({ status, onCloseMenu }) => {
       ease-linear
       ${status == true ? "translate-x-0" : "-translate-x-full"}
      md:static
-     lg:w-1/4
+     lg:w-[20%]
+     md:w-[30%]
+     sm:w-[30%]
      md:translate-x-0
      sm:-translate-x-full
     `}
@@ -52,26 +54,26 @@ const SideBar: FC<SideBarProps> = ({ status, onCloseMenu }) => {
             <Links
               icon={<MdDateRange />}
               label={"Appointment"}
-              to={"/appointment"}
+              to={"/dashboard/appointment"}
             />
             <Links
               icon={<MdAppRegistration />}
               label={"Registration"}
-              to={"/registration"}
+              to={"/dashboard/registration"}
             />
             <Links
               icon={<PiFilesDuotone />}
               label={"Records"}
-              to={"/records"}
+              to={"/dashboard/records"}
             />
-            <Links icon={<FaBed />} label={"Admissions"} to={"/admissions"} />
-            <Links icon={<FaUserDoctor />} label={"Doctors"} to={"/doctors"} />
+            <Links icon={<FaBed />} label={"Admissions"} to={"/dashboard/admissions"} />
+            <Links icon={<FaUserDoctor />} label={"Doctors"} to={"/dashboard/doctors"} />
             <Links
               icon={<IoIosNotificationsOutline />}
               label={"Notification"}
-              to={"/notifications"}
+              to={"/dashboard/notifications"}
             />
-            <Links icon={<IoSettingsOutline />} label={"Settings"} to={"/settings"} />
+            <Links icon={<IoSettingsOutline />} label={"Settings"} to={"/dashboard/settings"} />
           </div>
         </div>
       </div>

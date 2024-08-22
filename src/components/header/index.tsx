@@ -1,14 +1,16 @@
-import { FC,} from "react";
+import { FC, useContext,} from "react";
 import userIcon from "../../assets/user/user-01.png";
 import { IoIosArrowDown } from "react-icons/io";
 import { RiMenuFill } from "react-icons/ri";
 import BreadCrumbs from "../breadCrumbs/BreadCrumbs";
+import authContext, { useAuth } from "../../context/authContext";
 interface HeaderProps {
   toggleMenu: () => void;
 }
 
 const Header: FC<HeaderProps> = ({toggleMenu}) => {
-  
+  const {user,role}=useAuth()
+  console.log(user,role)
   return (
     <>
     
@@ -19,8 +21,8 @@ const Header: FC<HeaderProps> = ({toggleMenu}) => {
         </div>
        
         <div className="user_det hidden lg:flex md:flex   flex-col  ">
-          <span className="text-[#1c2434] ">User Name</span>
-          <span className="text-[#64748B] text-sm">User position</span>
+          <span className="text-[#1c2434] ">{user}</span>
+          <span className="text-[#64748B] text-sm">{role}</span>
         </div>
         
         <div className="flex  items-center justify-end gap-3 lg:justify-center md:justify-center sm:justify-end">
